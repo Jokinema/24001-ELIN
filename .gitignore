@@ -1,0 +1,30 @@
+# Byte-compiled / optimized Python files
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+venv/
+env/
+ENV/
+
+# Flask specific
+instance/
+.pytest_cache/
+coverage/
+
+# Environment variables
+.env
+
+# OS or Editor folders
+.DS_Store
+Thumbs.db
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Logs and databases
+*.log
+*.sqlite
+
+
+node_modules/
