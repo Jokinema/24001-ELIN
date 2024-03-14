@@ -13,5 +13,13 @@ def register():
 
 
 
+@app.route("/dashboard/")
+@app.route("/dashboard/index")
+def dashboard():
+	return render_template("routes/dashboard/index.html")
+
+
+
+
 if __name__ == '__main__':
 	app.run(debug=True, host='0.0.0.0')
