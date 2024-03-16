@@ -1,0 +1,52 @@
+{% from "components/breadcrumb.html" import breadcrumb with context %}
+
+<div class="grid grid-cols-1 px-4 pt-6 mb-4 xl:grid-cols-2 xl:gap-4 dark:bg-gray-900 dark:border-gray-700">
+    <div class="col-span-full mb-4 xl:mb-2">
+        {{
+            breadcrumb([
+                {'label': 'Input Data', 'href': '#'},
+                {'label': 'Rekomendasi'},
+            ])
+        }}
+        <h1 class="text-4xl font-semibold text-gray-900 sm:text-4xl dark:text-white">Rekomendasi</h1>
+    </div>
+    <div class="p-4 mb-4 bg-white rounded-lg shadow sm:p-6 text-center xl:p-8 dark:bg-gray-800 xl:mb-0">
+        <a href="" class="flex items-center mb-6 text-2xl font-bold dark:text-white">
+            <span>Rekomendasi Hari Ini: 16/03/2024</span>
+        </a>
+        <br>
+        <hr>
+        <br>
+        <p class="text-xl font-bold text-gray-900 dark:text-white">Hasil Prediksi Gaya Hidup</p>
+        <br>
+             <h5 class="mb-2 text-4xl font-bold tracking-tight text-primary-500 dark:text-primary-500">SEHAT</h5>
+
+        <br>
+        <p class="mb-2 text-base font-normal text-gray-500 dark:text-gray-400">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto atque, consequatur consequuntur dolore
+            dolorem est illum ipsum modi obcaecati qui.
+        </p>
+        <br><br><br>
+        <hr>
+        <br><br><br>
+        <p class="text-xl font-bold text-gray-900 dark:text-white">Rekomendasi</p> <br>
+        <p class="mb-2 text-base font-normal text-gray-500 dark:text-gray-400">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto atque, consequatur consequuntur dolore
+            dolorem est illum ipsum modi obcaecati qui. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias consectetur doloribus eius eos inventore libero officia quis quo reprehenderit ut!
+        </p>
+         <br><br><br>
+        <hr>
+
+
+        <div class="mt-6 space-y-4 w-full ">
+            <div>
+                <a href="/dashboard/"
+                   class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium inline-flex justify-center items-center rounded-lg text-sm px-5 py-2.5 text-center max-w-full sm:w-auto dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                    Kembali ke Home
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
