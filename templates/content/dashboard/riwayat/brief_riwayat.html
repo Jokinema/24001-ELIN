@@ -3,9 +3,9 @@
 <div class="grid grid-cols-1 px-4 pt-6 mb-4 xl:grid-cols-2 xl:gap-4 dark:bg-gray-900 dark:border-gray-700">
     <div class="col-span-full mb-4 xl:mb-2">
         {{
-            breadcrumb([
-                {'label': 'Rekap Data/Riwayat'},
-            ])
+        breadcrumb([
+        {'label': 'Rekap Data/Riwayat'},
+        ])
         }}
         <h1 class="text-4xl font-semibold text-gray-900 sm:text-4xl dark:text-white">Riwayat</h1>
     </div>
@@ -18,7 +18,7 @@
         <br>
         <p class="text-xl font-bold text-gray-900 dark:text-white">Prediksi Gaya Hidup Satu Minggu Terakhir</p>
         <br>
-             <h5 class="mb-2 text-4xl font-bold tracking-tight text-primary-500 dark:text-primary-500">SEHAT</h5>
+        <h5 class="mb-2 text-4xl font-bold tracking-tight text-primary-500 dark:text-primary-500">SEHAT</h5>
 
         <br>
         <p class="mb-2 text-base font-normal text-gray-500 dark:text-gray-400">
@@ -31,14 +31,22 @@
         <p class="text-xl font-bold text-gray-900 dark:text-white">Rekomendasi Satu Minggu Terakhir</p> <br>
         <p class="mb-2 text-base font-normal text-gray-500 dark:text-gray-400">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto atque, consequatur consequuntur dolore
-            dolorem est illum ipsum modi obcaecati qui. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias consectetur doloribus eius eos inventore libero officia quis quo reprehenderit ut!
+            dolorem est illum ipsum modi obcaecati qui. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
+            consectetur doloribus eius eos inventore libero officia quis quo reprehenderit ut!
         </p>
-         <br><br><br>
+        <br><br>
+        <p class="text-xl font-bold text-primary-500 dark:text-primary-500">GAMBAR TRAINING</p> <br>
+        <br><br><br>
         <hr>
 
         <br><br><br>
-                <p class="text-xl font-bold text-gray-900 dark:text-white">Grafik IMT Satu Minggu Terakhir</p> <br>
-          <div id="main-chart"></div>
+        <p class="text-xl font-bold text-gray-900 dark:text-white">Grafik IMT Satu Minggu Terakhir</p> <br>
+        <div id="chartRiwayat"></div>
+        <br><br>
+           <p class="text-xl font-bold text-primary-500 dark:text-primary-500">Grafik Kalori Satu Minggu Terakhir</p> <br>
+        <div id="new-products-chart"></div>
+           <p class="text-xl font-bold text-primary-500 dark:text-primary-500">Grafik Air Minum Satu Minggu Terakhir</p> <br><br>
+  <div id="visitors-chart"></div>
         <br><br><br>
         <div class="mt-6 space-y-4 w-full ">
             <div>
@@ -56,7 +64,162 @@
                 </a>
             </div>
         </div>
+
+
     </div>
 
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script>
+    const chartRiwayatOptions = () => {
+        let mainChartColors = {}
+
+        if (document.documentElement.classList.contains('dark')) {
+            mainChartColors = {
+                borderColor: '#374151',
+                labelColor: '#9CA3AF',
+                opacityFrom: 0,
+                opacityTo: 0.15,
+            };
+        } else {
+            mainChartColors = {
+                borderColor: '#F3F4F6',
+                labelColor: '#6B7280',
+                opacityFrom: 0.45,
+                opacityTo: 0,
+            }
+        }
+
+        return {
+            chart: {
+                height: 420,
+                type: 'area',
+                fontFamily: 'Inter, sans-serif',
+                foreColor: mainChartColors.labelColor,
+                toolbar: {
+                    show: false
+                }
+            },
+            fill: {
+                type: 'gradient',
+                gradient: {
+                    enabled: true,
+                    opacityFrom: mainChartColors.opacityFrom,
+                    opacityTo: mainChartColors.opacityTo
+                }
+            },
+            dataLabels: {
+                enabled: false
+            },
+            tooltip: {
+                style: {
+                    fontSize: '14px',
+                    fontFamily: 'Inter, sans-serif',
+                },
+            },
+            grid: {
+                show: true,
+                borderColor: mainChartColors.borderColor,
+                strokeDashArray: 1,
+                padding: {
+                    left: 35,
+                    bottom: 15
+                }
+            },
+            series: [
+                {
+                    name: 'Berat Badan',
+                    data: [57, 54, 58, 54, 58, 57, 59],
+                    color: '#1A56DB'
+                },
+                {
+                    name: 'Tinggi Badan',
+                    data: [156, 156, 156, 156, 156, 157, 154],
+                    color: '#FDBA8C'
+                }
+            ],
+            markers: {
+                size: 5,
+                strokeColors: '#ffffff',
+                hover: {
+                    size: undefined,
+                    sizeOffset: 3
+                }
+            },
+            xaxis: {
+                categories: ['10 Mar', '11 Mar', '12 Mar', '13 Mar', '14 Mar', '15 Mar', '16 Mar'],
+                labels: {
+                    style: {
+                        colors: [mainChartColors.labelColor],
+                        fontSize: '14px',
+                        fontWeight: 500,
+                    },
+                },
+                axisBorder: {
+                    color: mainChartColors.borderColor,
+                },
+                axisTicks: {
+                    color: mainChartColors.borderColor,
+                },
+                crosshairs: {
+                    show: true,
+                    position: 'back',
+                    stroke: {
+                        color: mainChartColors.borderColor,
+                        width: 1,
+                        dashArray: 10,
+                    },
+                },
+            },
+            yaxis: {
+                labels: {
+                    style: {
+                        colors: [mainChartColors.labelColor],
+                        fontSize: '14px',
+                        fontWeight: 500,
+                    },
+                    formatter: function (value) {
+                        return  value;
+                    }
+                },
+            },
+            legend: {
+                fontSize: '14px',
+                fontWeight: 500,
+                fontFamily: 'Inter, sans-serif',
+                labels: {
+                    colors: [mainChartColors.labelColor]
+                },
+                itemMargin: {
+                    horizontal: 10
+                }
+            },
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    options: {
+                        xaxis: {
+                            labels: {
+                                show: false
+                            }
+                        }
+                    }
+                }
+            ]
+        };
+    }
+
+    if (document.getElementById('chartRiwayat')) {
+        // Create a new ApexCharts instance with the chart options
+        var chart = new ApexCharts(document.getElementById('chartRiwayat')  , chartRiwayatOptions());
+
+// Render the chart
+        chart.render();
+
+// Initialize the chart again when toggling dark mode
+        document.addEventListener('dark-mode', function () {
+            chart.updateOptions(chartRiwayatOptions());
+        });
+    }
+</script>
